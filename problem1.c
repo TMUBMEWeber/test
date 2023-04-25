@@ -1,37 +1,14 @@
 #include <stdio.h>
-double ctof(double c);
 
-int  main(){
-    double low = 0.0;
-    printf("Please give the lower limit, limit>=0: ");
-    scanf("%lf", &low);
-    
-    while (low < 0){
-        printf("Please give the lower limit, limit>=0: ");
-        scanf("%lf", &low);
-    };
-    double high = 0;
-    do
-    {
-        printf("Please give the higher limit, %lf<limit<=50000: ", low);
-        scanf("%lf", &high);
-    } while (high > 50000 || high < 10);
-    double step = 0;
-    do
-    {
-        printf("Please give the step, %lf<limit<=%lf: ", low, high);
-        scanf("%lf", &step);
-    } while ( step > high || step < low);
-    printf("Celsius              Fahrenheit\n");
-    printf("----------------------------------\n");
-    for(double i= low; i<high; i=i+step){
-        printf("%lf                    %lf",i, ctof(i));
+int main(){
+    int a = -1, b = -1, c = -1; //initialize the value
+    printf("Input three side of triangle: ");// print message
+    scanf("%d %d %d", &a, &b, &c);//read input
+    if (a+b>c && b+c > a && c+a >b){ //if a triangle
+        if (a == b && b == c && c == a) printf("This is an equilateral triangle.\n"); //The side are among the same
+        else if (a != b && b != c && c != a) printf("This is an scalene triangle.\n");//Each one is unique
+        else printf("This is an isosceles triangle.\n");//Each two side are equal and not all the same
     }
-
-    return 0;
-
-}
-
-double ctof(double c){
-    return 9/5*(c)+32;
+    else printf("This is not a triangle\n"); // print message
+    return 0; // main return
 }

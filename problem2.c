@@ -1,23 +1,21 @@
 #include <stdio.h>
 
 int main(){
-    unsigned first = 0;
-    unsigned int second = 0;
-    unsigned int ans = 0;
-    printf("Enter the first number:");
-    scanf("%d", &first);
-    printf("Enter the second number:");
-    scanf("%d", &second);
-    
-
-    int carry;
-    while (second != 0) {
-        carry = first & second;
-        first = first ^ second;
-        second = carry << 1;
+    int a = 0, b = 0; //declare variable
+    scanf("%d %d", &a, &b); // read input
+    printf("X       Y       X+Y     X-Y     X*Y\n"); //print message
+    printf("------------------------------------\n");
+    int add, sub, mul; //declare variable
+    for (int count = 0; count < 5; count++) //for loop from x to x+4
+    {   
+        a += count; //arithmetic
+        b += count;
+        add = a + b;
+        sub = a - b;
+        mul = a * b;
+        printf("%-8d%-8d%-8d%-8d%-8d\n", a, b, add, sub, mul); //print value and negative sign is to align the word
+        a -= count;
+        b -= count;
     }
-    ans = first;
-
-    
-    printf("%d", ans);
+    return 0; // main return
 }
