@@ -1,14 +1,20 @@
-#include <stdio.h>
+#include <stdio.h> // include header file
+#include <math.h>
+#define pi acos(-1) // define pi
 
-int main(){
-    int a = -1, b = -1, c = -1; //initialize the value
-    printf("Input three side of triangle: ");// print message
-    scanf("%d %d %d", &a, &b, &c);//read input
-    if (a+b>c && b+c > a && c+a >b){ //if a triangle
-        if (a == b && b == c && c == a) printf("This is an equilateral triangle.\n"); //The side are among the same
-        else if (a != b && b != c && c != a) printf("This is an scalene triangle.\n");//Each one is unique
-        else printf("This is an isosceles triangle.\n");//Each two side are equal and not all the same
+int main(){ // main
+    double radius = 0.0; //initialize radius
+    printf("Please enter the input value > 0: "); // print 
+    scanf("%lf", &radius); // read value
+    while (radius <= 0) //while when wrong enter value
+    {
+        printf("Please enter the input value > 0: ");
+        scanf("%lf", &radius);
     }
-    else printf("This is not a triangle\n"); // print message
-    return 0; // main return
+    
+    double diameter = radius * 2.0; // calculate diameter
+    double circumference = 2 * pi * radius; // calculate circumference
+    double area = pi * radius * radius; //calculate area
+    printf("Diameter = %lf units\nCircumference = %lf units\nArea = %lf sq. units", diameter, circumference, area); //print
+    return 0; //main return
 }

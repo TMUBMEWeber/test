@@ -1,20 +1,17 @@
-#include <stdio.h>
+#include <stdio.h> // header file
 
 int main(){
-    printf("Please enter the lower, upper and step value sequencely\n"); // print message
-    float lower = 0, upper = 0, step = 0; //declare variable
-    scanf("%f%f%f", &lower, &upper, &step); //read input
-    printf("Celsius     |   Fahrenheit\n"); // print message
-    printf("------------------------------------------\n");
-    float f = 0; //declare variable
-    while (lower <= upper)
-    {
-        printf("%.2f", lower); //.2 is to print to 2 of numbers after decimal point
-        printf("         |");
-        f = 9.0/5.0 *(lower) + 32; // arithmetic
-        printf("%8.2f \n",f); // 8 is to align the word
-        lower += step; //to the next step 
-    }
-
-    return 0;//main return
+    double weight = 0; //initialize variables
+    double height = 0;
+    printf("Enter your weight in kilogram: ");//print
+    scanf("%lf", &weight); //read value
+    printf("Enter you height in meters: ");//print
+    scanf("%lf", &height);//read value
+    double BMI = weight / (height*height); // calculate BMI
+    printf("Your BMI is: %lf \n", BMI);// print
+    if (BMI < 18.5) printf("You are underweight. "); // flow control
+    else if (BMI >= 18.5 && BMI < 25 ) printf("You are normal weight.");
+    else if (BMI >= 25 && BMI < 30 ) printf("You are overweight.");
+    else printf("You are obese");
+    return 0; //main return
 }
